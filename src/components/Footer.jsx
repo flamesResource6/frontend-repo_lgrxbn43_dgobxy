@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
-    <footer className="py-14 bg-white border-t border-gray-100" id="contact">
+    <footer className="py-16 border-t border-white/60 bg-white/70 backdrop-blur" id="contact">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-          <div className="text-gray-900 font-medium">Swiftmark</div>
+          <div className="text-gray-900 font-semibold tracking-tight">Swiftmark</div>
           <nav className="flex flex-wrap gap-6 text-sm text-gray-600">
             <a href="#" className="hover:text-gray-900">Contact</a>
             <a href="#" className="hover:text-gray-900">Privacy</a>

@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function Transparency() {
   const points = [
     "Every mark includes visible reasoning",
@@ -8,7 +10,7 @@ export default function Transparency() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50" id="transparency">
+    <section className="py-20" id="transparency">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -16,12 +18,18 @@ export default function Transparency() {
             <p className="mt-4 text-gray-600 max-w-xl">Trust is central to Swiftmark. Every suggestion comes with clear, human-readable reasoning and a transparent link to criteria.</p>
             <ul className="mt-8 space-y-3 text-gray-700">
               {points.map((p) => (
-                <li key={p} className="flex items-start gap-3"><span className="mt-1 h-2.5 w-2.5 rounded-full bg-sky-500" />{p}</li>
+                <li key={p} className="flex items-start gap-3"><span className="mt-2 h-2.5 w-2.5 rounded-full bg-sky-500" />{p}</li>
               ))}
             </ul>
           </div>
           <div>
-            <div className="relative rounded-2xl border border-gray-100 bg-white shadow-lg p-6">
+            <motion.div
+              initial={{ scale: 0.98, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="relative overflow-hidden rounded-2xl border border-white/60 bg-white/70 backdrop-blur-xl shadow-xl p-6"
+            >
               <div className="text-sm text-gray-500">Reasoning panel</div>
               <div className="mt-3 space-y-2">
                 <div className="h-4 w-11/12 bg-gray-100 rounded" />
@@ -33,7 +41,7 @@ export default function Transparency() {
                 <div className="h-24 rounded-xl bg-gray-50 border border-gray-100" />
               </div>
               <p className="mt-6 text-sm text-gray-500">A simple, isolated look at the transparency view.</p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

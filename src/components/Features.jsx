@@ -1,4 +1,5 @@
 import { CheckCircle2, Layers, ListChecks, FileText, SlidersHorizontal, Users } from "lucide-react";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -35,17 +36,29 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-20 bg-white" id="features">
+    <section className="py-20" id="features">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900">What Swiftmark does</h2>
-        <p className="mt-3 text-gray-600 max-w-2xl">Plain, simple terms — no fluff. The core capabilities that make marking faster and clearer.</p>
+        <div className="max-w-3xl">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900">What Swiftmark does</h2>
+          <p className="mt-3 text-gray-600">Clear capabilities designed for speed and trust.
+          </p>
+        </div>
+
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="rounded-2xl border border-gray-100 p-6 bg-white shadow-sm hover:shadow-md transition-shadow">
+          {features.map(({ icon: Icon, title, desc }, i) => (
+            <motion.div
+              key={title}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
+              className="group relative overflow-hidden rounded-2xl border border-gray-100 p-6 bg-white/70 backdrop-blur shadow-sm"
+            >
+              <div className="absolute -z-10 inset-0 bg-gradient-to-br from-sky-50 to-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity" />
               <Icon className="h-6 w-6 text-sky-600" />
               <h3 className="mt-4 text-lg font-medium text-gray-900">{title}</h3>
               <p className="mt-2 text-gray-600 text-sm">{desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
